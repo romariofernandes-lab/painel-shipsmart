@@ -31,6 +31,7 @@ body {
     display: inline-block;
     font-size: 20px;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 /* CARDS */
@@ -84,27 +85,70 @@ iframe {
     text-decoration: none;
     display: inline-block;
 }
-</style>
 
+/* ABAS DE TRANSPORTADORAS */
+.tabs {
+    margin-top: 50px;
+}
+
+.tab-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+.tab-buttons button.active {
+    background: #1f4ea3;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    margin-top: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.transportadoras a {
+    display: block;
+    margin: 10px auto;
+    width: 300px;
+    padding: 12px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #1f4ea3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.transportadoras a:hover {
+    background: #1f4ea3;
+    color: white;
+}
+</style>
 </head>
 
 <body>
 
 <div class="header">
-    <img src="https://shipsmart.global/wp-content/uploads/2026/03/shipsmart-logo-w.png">
+    <img src="https://shipsmart.global/wp-content/uploads/2026/03/shipsmart-logo-w.png" alt="Logo ShipSmart">
 </div>
 
 <div class="home-btn">🏠 Início</div>
 
 <div class="container">
-
     <div class="card">
         <h2>Torre de Controle</h2>
         <a class="btn" href="#">Acessar</a>
     </div>
 
     <div class="card">
-        <h2>O Arquivo</h2>
+        <h2>O Aruvio</h2>
         <a class="btn" href="#">Acessar</a>
     </div>
 
@@ -112,21 +156,65 @@ iframe {
         <h2>Relatórios</h2>
         <a class="btn" href="#">Visualizar</a>
     </div>
-
 </div>
 
 <div class="sheet">
-    <h2>Torre de Controle</h2>
-
+    <h2>Planilha do Aruvio</h2>
     <iframe src="https://docs.google.com/spreadsheets/d/1VBzvma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545"></iframe>
-
     <br>
-
     <a class="open-btn" target="_blank"
-    href="https://docs.google.com/spreadsheets/d/1VBzma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545">
+       href="https://docs.google.com/spreadsheets/d/1VBzvma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545">
         Abrir Planilha
     </a>
 </div>
+
+<!-- ABAS DE TRANSPORTADORAS -->
+<div class="tabs">
+    <h2>Transportadoras</h2>
+
+    <div class="tab-buttons">
+        <button onclick="openTab(event, 'br')" class="active">🇧🇷 Brasil</button>
+        <button onclick="openTab(event, 'pt')">🇵🇹 Portugal</button>
+        <button onclick="openTab(event, 'mx')">🇲🇽 México</button>
+    </div>
+
+    <!-- BRASIL -->
+    <div id="br" class="tab-content active transportadoras">
+        <a href="https://rastreamento.correios.com.br" target="_blank">Correios</a>
+        <a href="https://app.loggi.com/envios-nacionais" target="_blank">Loggi</a>
+        <a href="https://www.fedex.com/pt-br/tracking.html" target="_blank">FedEx</a>
+        <a href="https://www.ups.com/br/pt/home" target="_blank">UPS Brasil</a>
+        <a href="https://www.dhl.com/br-pt/home/rastreamento.html" target="_blank">DHL</a>
+    </div>
+
+    <!-- PORTUGAL -->
+    <div id="pt" class="tab-content transportadoras">
+        <a href="https://tracking.dpd.pt/" target="_blank">DPD</a>
+        <a href="https://gls-group.eu/PT/pt/receber-envios/seguir-envio/" target="_blank">GLS</a>
+        <a href="https://www.ctt.pt/ajuda/particulares/apoio-ao-cliente/contactos/reclamacoes" target="_blank">CTT</a>
+        <a href="https://www.dhl.com/pt-pt/home/rastreamento.html" target="_blank">DHL Portugal</a>
+    </div>
+
+    <!-- MÉXICO -->
+    <div id="mx" class="tab-content transportadoras">
+        <a href="https://www.dhl.com/mx-es/home/rastreo.html" target="_blank">DHL México</a>
+        <a href="https://www.fedex.com/es-mx/tracking.html" target="_blank">FedEx México</a>
+        <a href="https://www.ups.com/mx/es/Home.page" target="_blank">UPS México</a>
+    </div>
+</div>
+
+<script>
+function openTab(event, tab) {
+    const contents = document.querySelectorAll(".tab-content");
+    const buttons = document.querySelectorAll(".tab-buttons button");
+
+    contents.forEach(c => c.classList.remove("active"));
+    buttons.forEach(b => b.classList.remove("active"));
+
+    document.getElementById(tab).classList.add("active");
+    event.currentTarget.classList.add("active");
+}
+</script>
 
 </body>
 </html>
