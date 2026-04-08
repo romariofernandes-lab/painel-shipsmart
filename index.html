@@ -86,7 +86,7 @@ iframe {
     display: inline-block;
 }
 
-/* ABAS DE TRANSPORTADORAS */
+/* ABAS DE TRANSPORTADORAS + METABASE */
 .tabs {
     margin-top: 50px;
 }
@@ -108,6 +108,10 @@ iframe {
 .tab-content {
     display: none;
     margin-top: 20px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tab-content.active {
@@ -130,6 +134,17 @@ iframe {
     background: #1f4ea3;
     color: white;
 }
+
+.metabase a {
+    display: block;
+    margin: 10px 0;
+    color: #1f4ea3;
+    text-decoration: underline;
+}
+
+.metabase a:hover {
+    color: #2ecc71;
+}
 </style>
 </head>
 
@@ -143,23 +158,23 @@ iframe {
 
 <div class="container">
     <div class="card">
-        <h2>Torre de Controle</h2>
+        <h2>🏢 Torre de Controle</h2>
         <a class="btn" href="#">Acessar</a>
     </div>
 
     <div class="card">
-        <h2>O Aruvio</h2>
+        <h2>📦 O Aruvio</h2>
         <a class="btn" href="#">Acessar</a>
     </div>
 
     <div class="card">
-        <h2>Relatórios</h2>
+        <h2>📊 Relatórios</h2>
         <a class="btn" href="#">Visualizar</a>
     </div>
 </div>
 
 <div class="sheet">
-    <h2>Planilha do Aruvio</h2>
+    <h2>📑 Planilha do Aruvio</h2>
     <iframe src="https://docs.google.com/spreadsheets/d/1VBzvma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545"></iframe>
     <br>
     <a class="open-btn" target="_blank"
@@ -168,39 +183,61 @@ iframe {
     </a>
 </div>
 
-<!-- ABAS DE TRANSPORTADORAS -->
+<!-- ABAS DE TRANSPORTADORAS + METABASE -->
 <div class="tabs">
-    <h2>Transportadoras</h2>
+    <h2>🚚 Transportadoras e Metabase</h2>
 
     <div class="tab-buttons">
         <button onclick="openTab(event, 'br')" class="active">🇧🇷 Brasil</button>
         <button onclick="openTab(event, 'pt')">🇵🇹 Portugal</button>
         <button onclick="openTab(event, 'mx')">🇲🇽 México</button>
+        <button onclick="openTab(event, 'mb')">📊 Metabase</button>
     </div>
 
     <!-- BRASIL -->
     <div id="br" class="tab-content active transportadoras">
-        <a href="https://rastreamento.correios.com.br" target="_blank">Correios</a>
-        <a href="https://app.loggi.com/envios-nacionais" target="_blank">Loggi</a>
-        <a href="https://www.fedex.com/pt-br/tracking.html" target="_blank">FedEx</a>
-        <a href="https://www.ups.com/br/pt/home" target="_blank">UPS Brasil</a>
-        <a href="https://www.dhl.com/br-pt/home/rastreamento.html" target="_blank">DHL</a>
+        <a href="https://rastreamento.correios.com.br" target="_blank">🇧🇷 Correios</a>
+        <a href="https://app.loggi.com/envios-nacionais" target="_blank">🇧🇷 Loggi</a>
+        <a href="https://www.fedex.com/pt-br/tracking.html" target="_blank">🇧🇷 FedEx</a>
+        <a href="https://www.ups.com/br/pt/home" target="_blank">🇧🇷 UPS Brasil</a>
+        <a href="https://www.dhl.com/br-pt/home/rastreamento.html" target="_blank">🇧🇷 DHL</a>
     </div>
 
     <!-- PORTUGAL -->
     <div id="pt" class="tab-content transportadoras">
-        <a href="https://tracking.dpd.pt/" target="_blank">DPD</a>
-        <a href="https://gls-group.eu/PT/pt/receber-envios/seguir-envio/" target="_blank">GLS</a>
-        <a href="https://www.ctt.pt/ajuda/particulares/apoio-ao-cliente/contactos/reclamacoes" target="_blank">CTT</a>
-        <a href="https://www.dhl.com/pt-pt/home/rastreamento.html" target="_blank">DHL Portugal</a>
+        <a href="https://tracking.dpd.pt/" target="_blank">🇵🇹 DPD</a>
+        <a href="https://gls-group.eu/PT/pt/receber-envios/seguir-envio/" target="_blank">🇵🇹 GLS</a>
+        <a href="https://www.ctt.pt/ajuda/particulares/apoio-ao-cliente/contactos/reclamacoes" target="_blank">🇵🇹 CTT</a>
+        <a href="https://www.dhl.com/pt-pt/home/rastreamento.html" target="_blank">🇵🇹 DHL Portugal</a>
     </div>
 
     <!-- MÉXICO -->
     <div id="mx" class="tab-content transportadoras">
-        <a href="https://www.dhl.com/mx-es/home/rastreo.html" target="_blank">DHL México</a>
-        <a href="https://www.fedex.com/es-mx/tracking.html" target="_blank">FedEx México</a>
-        <a href="https://www.ups.com/mx/es/Home.page" target="_blank">UPS México</a>
+        <a href="https://www.dhl.com/mx-es/home/rastreo.html" target="_blank">🇲🇽 DHL México</a>
+        <a href="https://www.fedex.com/es-mx/tracking.html" target="_blank">🇲🇽 FedEx México</a>
+        <a href="https://www.ups.com/mx/es/Home.page" target="_blank">🇲🇽 UPS México</a>
     </div>
+
+    <!-- METABASE -->
+    <div id="mb" class="tab-content metabase">
+        <h3>📄 AWB + Invoice Larroude de Arezzo</h3>
+        <p>Descrição: Enviar arquivos Larroude no mesmo dia (D+1) e Arezzo D-1.</p>
+        <ol>
+            <li>Passo 1: <a href="https://shipsmart.metabaseapp.com/question/4046-awb-invoice-larroude" target="_blank">Abrir Metabase</a></li>
+            <li>Passo 2: <a href="https://docs.google.com/spreadsheets/d/1BGvwwdeAPhSD94o21QhP_zpaKgRU8yNiRdZKD-qI-CY/edit?gid=100821504#gid=100821504" target="_blank">Colar links no Passo 2</a></li>
+            <li>Passo 3: <a href="https://shipsmartbrasil.postman.co/workspace/Team-Workspace~fc1340c4-ef6f-405e-8e2d-8661cb93e2c1/request/15597391-ab25a742-193a-4789-a0c9-e747a9ac6f87?tab=body" target="_blank">Enviar JSON no Postman</a></li>
+        </ol>
+        <p>Observação JSON:</p>
+        <pre>
+{
+  "PdfUrls": [
+    "colar os links gerados no passo 2 e tirar a última vírgula"
+  ]
+}
+        </pre>
+        <p>Dar <strong>Send</strong> e em seguida baixar o arquivo em <em>Save Response to File</em>.</p>
+    </div>
+
 </div>
 
 <script>
