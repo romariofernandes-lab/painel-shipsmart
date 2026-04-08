@@ -9,7 +9,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f4f7fb;
+    background: #1f4ea3; /* Fundo azul */
+    color: #fff;
     text-align: center;
 }
 
@@ -24,8 +25,8 @@ body {
 
 /* BOTÃO INICIO */
 .home-btn {
-    background: #1f4ea3;
-    color: white;
+    background: #ffffff;
+    color: #1f4ea3;
     padding: 15px 40px;
     border-radius: 12px;
     display: inline-block;
@@ -40,14 +41,16 @@ body {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 .card {
-    background: white;
+    background: #ffffff;
+    color: #1f4ea3;
     width: 280px;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .card h2 {
@@ -86,9 +89,18 @@ iframe {
     display: inline-block;
 }
 
-/* ABAS DE TRANSPORTADORAS + METABASE */
-.tabs {
+/* SEÇÕES LADO A LADO */
+.side-by-side {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
     margin-top: 50px;
+}
+
+/* MENU ABAS */
+.tabs {
+    width: 350px;
 }
 
 .tab-buttons button {
@@ -109,41 +121,34 @@ iframe {
     display: none;
     margin-top: 20px;
     text-align: left;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .tab-content.active {
     display: block;
 }
 
-.transportadoras a {
+.transportadoras a, .metabase a {
     display: block;
     margin: 10px auto;
     width: 300px;
     padding: 12px;
-    background: #ffffff;
     border-radius: 10px;
     text-decoration: none;
     color: #1f4ea3;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.transportadoras a:hover {
+.transportadoras a:hover, .metabase a:hover {
     background: #1f4ea3;
     color: white;
 }
 
-.metabase a {
-    display: block;
-    margin: 10px 0;
-    color: #1f4ea3;
-    text-decoration: underline;
-}
-
-.metabase a:hover {
-    color: #2ecc71;
+/* TITULOS */
+.section-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #fff;
 }
 </style>
 </head>
@@ -183,59 +188,64 @@ iframe {
     </a>
 </div>
 
-<!-- ABAS DE TRANSPORTADORAS + METABASE -->
-<div class="tabs">
-    <h2>🚚 Transportadoras e Metabase</h2>
+<!-- SEÇÃO LADO A LADO: Transportadoras + Metabase -->
+<div class="side-by-side">
 
-    <div class="tab-buttons">
-        <button onclick="openTab(event, 'br')" class="active">🇧🇷 Brasil</button>
-        <button onclick="openTab(event, 'pt')">🇵🇹 Portugal</button>
-        <button onclick="openTab(event, 'mx')">🇲🇽 México</button>
-        <button onclick="openTab(event, 'mb')">📊 Metabase</button>
-    </div>
+    <!-- TRANSPORTADORAS -->
+    <div class="tabs">
+        <div class="section-title">🚚 Transportadoras</div>
+        <div class="tab-buttons">
+            <button onclick="openTab(event,'br')" class="active">🇧🇷 Brasil</button>
+            <button onclick="openTab(event,'pt')">🇵🇹 Portugal</button>
+            <button onclick="openTab(event,'mx')">🇲🇽 México</button>
+        </div>
 
-    <!-- BRASIL -->
-    <div id="br" class="tab-content active transportadoras">
-        <a href="https://rastreamento.correios.com.br" target="_blank">🇧🇷 Correios</a>
-        <a href="https://app.loggi.com/envios-nacionais" target="_blank">🇧🇷 Loggi</a>
-        <a href="https://www.fedex.com/pt-br/tracking.html" target="_blank">🇧🇷 FedEx</a>
-        <a href="https://www.ups.com/br/pt/home" target="_blank">🇧🇷 UPS Brasil</a>
-        <a href="https://www.dhl.com/br-pt/home/rastreamento.html" target="_blank">🇧🇷 DHL</a>
-    </div>
+        <div id="br" class="tab-content active transportadoras">
+            <a href="https://rastreamento.correios.com.br" target="_blank">🇧🇷 Correios</a>
+            <a href="https://app.loggi.com/envios-nacionais" target="_blank">🇧🇷 Loggi</a>
+            <a href="https://www.fedex.com/pt-br/tracking.html" target="_blank">🇧🇷 FedEx</a>
+            <a href="https://www.ups.com/br/pt/home" target="_blank">🇧🇷 UPS Brasil</a>
+            <a href="https://www.dhl.com/br-pt/home/rastreamento.html" target="_blank">🇧🇷 DHL</a>
+        </div>
 
-    <!-- PORTUGAL -->
-    <div id="pt" class="tab-content transportadoras">
-        <a href="https://tracking.dpd.pt/" target="_blank">🇵🇹 DPD</a>
-        <a href="https://gls-group.eu/PT/pt/receber-envios/seguir-envio/" target="_blank">🇵🇹 GLS</a>
-        <a href="https://www.ctt.pt/ajuda/particulares/apoio-ao-cliente/contactos/reclamacoes" target="_blank">🇵🇹 CTT</a>
-        <a href="https://www.dhl.com/pt-pt/home/rastreamento.html" target="_blank">🇵🇹 DHL Portugal</a>
-    </div>
+        <div id="pt" class="tab-content transportadoras">
+            <a href="https://tracking.dpd.pt/" target="_blank">🇵🇹 DPD</a>
+            <a href="https://gls-group.eu/PT/pt/receber-envios/seguir-envio/" target="_blank">🇵🇹 GLS</a>
+            <a href="https://www.ctt.pt/ajuda/particulares/apoio-ao-cliente/contactos/reclamacoes" target="_blank">🇵🇹 CTT</a>
+            <a href="https://www.dhl.com/pt-pt/home/rastreamento.html" target="_blank">🇵🇹 DHL Portugal</a>
+        </div>
 
-    <!-- MÉXICO -->
-    <div id="mx" class="tab-content transportadoras">
-        <a href="https://www.dhl.com/mx-es/home/rastreo.html" target="_blank">🇲🇽 DHL México</a>
-        <a href="https://www.fedex.com/es-mx/tracking.html" target="_blank">🇲🇽 FedEx México</a>
-        <a href="https://www.ups.com/mx/es/Home.page" target="_blank">🇲🇽 UPS México</a>
+        <div id="mx" class="tab-content transportadoras">
+            <a href="https://www.dhl.com/mx-es/home/rastreo.html" target="_blank">🇲🇽 DHL México</a>
+            <a href="https://www.fedex.com/es-mx/tracking.html" target="_blank">🇲🇽 FedEx México</a>
+            <a href="https://www.ups.com/mx/es/Home.page" target="_blank">🇲🇽 UPS México</a>
+        </div>
     </div>
 
     <!-- METABASE -->
-    <div id="mb" class="tab-content metabase">
-        <h3>📄 AWB + Invoice Larroude de Arezzo</h3>
-        <p>Descrição: Enviar arquivos Larroude no mesmo dia (D+1) e Arezzo D-1.</p>
-        <ol>
-            <li>Passo 1: <a href="https://shipsmart.metabaseapp.com/question/4046-awb-invoice-larroude" target="_blank">Abrir Metabase</a></li>
-            <li>Passo 2: <a href="https://docs.google.com/spreadsheets/d/1BGvwwdeAPhSD94o21QhP_zpaKgRU8yNiRdZKD-qI-CY/edit?gid=100821504#gid=100821504" target="_blank">Colar links no Passo 2</a></li>
-            <li>Passo 3: <a href="https://shipsmartbrasil.postman.co/workspace/Team-Workspace~fc1340c4-ef6f-405e-8e2d-8661cb93e2c1/request/15597391-ab25a742-193a-4789-a0c9-e747a9ac6f87?tab=body" target="_blank">Enviar JSON no Postman</a></li>
-        </ol>
-        <p>Observação JSON:</p>
-        <pre>
+    <div class="tabs">
+        <div class="section-title">📊 Metabase</div>
+        <div class="tab-buttons">
+            <button onclick="openTab(event,'mb1')" class="active">AWB + Invoice</button>
+        </div>
+
+        <div id="mb1" class="tab-content metabase active">
+            <h3>📄 AWB + Invoice Larroude de Arezzo</h3>
+            <p>Enviar arquivos Larroude no mesmo dia (D+1) e Arezzo D-1.</p>
+            <ol>
+                <li>Passo 1: <a href="https://shipsmart.metabaseapp.com/question/4046-awb-invoice-larroude" target="_blank">Abrir Metabase</a></li>
+                <li>Passo 2: <a href="https://docs.google.com/spreadsheets/d/1BGvwwdeAPhSD94o21QhP_zpaKgRU8yNiRdZKD-qI-CY/edit?gid=100821504#gid=100821504" target="_blank">Colar links no Passo 2</a></li>
+                <li>Passo 3: <a href="https://shipsmartbrasil.postman.co/workspace/Team-Workspace~fc1340c4-ef6f-405e-8e2d-8661cb93e2c1/request/15597391-ab25a742-193a-4789-a0c9-e747a9ac6f87?tab=body" target="_blank">Enviar JSON no Postman</a></li>
+            </ol>
+            <pre>
 {
   "PdfUrls": [
     "colar os links gerados no passo 2 e tirar a última vírgula"
   ]
 }
-        </pre>
-        <p>Dar <strong>Send</strong> e em seguida baixar o arquivo em <em>Save Response to File</em>.</p>
+            </pre>
+            <p>Dar <strong>Send</strong> e baixar o arquivo em <em>Save Response to File</em>.</p>
+        </div>
     </div>
 
 </div>
@@ -248,8 +258,9 @@ function openTab(event, tab) {
     contents.forEach(c => c.classList.remove("active"));
     buttons.forEach(b => b.classList.remove("active"));
 
-    document.getElementById(tab).classList.add("active");
-    event.currentTarget.classList.add("active");
+    const tabElement = document.getElementById(tab);
+    if(tabElement) tabElement.classList.add("active");
+    if(event) event.currentTarget.classList.add("active");
 }
 </script>
 
