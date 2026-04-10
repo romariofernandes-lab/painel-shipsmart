@@ -1,5 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel ShipSmart</title>
+
+    <!-- ✅ LINK DO CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
 <main>
 
+    <!-- HERO -->
     <div class="hero">
         <h1>Meu painel</h1>
     </div>
@@ -13,99 +27,106 @@
             <h3>🏢 Torre de Controle</h3>
             <a class="btn-primary" href="#">Acessar</a>
         </div>
+
+        <div class="card">
+            <h3>📦 O Aruvio</h3>
+            <a class="btn-primary" href="#">Acessar</a>
+        </div>
+
+        <div class="card">
+            <h3>📊 Relatórios</h3>
+            <a class="btn-primary" href="#">Visualizar</a>
+        </div>
+    </div>
+
+    <!-- PLANILHA -->
+    <h2 class="section-title">📑 Planilha do Aruvio</h2>
+
+    <div style="background:white; padding:20px; border-radius:20px;">
+        <iframe 
+            src="https://docs.google.com/spreadsheets/d/1VBzvma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545"
+            style="width:100%; height:450px; border:none; border-radius:12px;">
+        </iframe>
+
+        <div style="text-align:center; margin-top:20px;">
+            <a class="btn-primary" target="_blank"
+               href="https://docs.google.com/spreadsheets/d/1VBzvma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545">
+                Abrir Planilha
+            </a>
+        </div>
+    </div>
+
+    <!-- TRANSPORTADORAS + METABASE -->
+    <div class="cards-grid">
+
+        <!-- TRANSPORTADORAS -->
+        <div class="card" style="min-width:320px;">
+            <h3>🚚 Transportadoras</h3>
+
+            <div class="tab-buttons">
+                <button onclick="openTab(event,'br')" class="active">🇧🇷</button>
+                <button onclick="openTab(event,'pt')">🇵🇹</button>
+                <button onclick="openTab(event,'mx')">🇲🇽</button>
+            </div>
+
+            <div id="br" class="tab-content active">
+                <a href="https://rastreamento.correios.com.br" target="_blank">Correios</a>
+                <a href="https://app.loggi.com/envios-nacionais" target="_blank">Loggi</a>
+                <a href="https://www.fedex.com/pt-br/tracking.html" target="_blank">FedEx</a>
+            </div>
+
+            <div id="pt" class="tab-content">
+                <a href="https://tracking.dpd.pt/" target="_blank">DPD</a>
+                <a href="https://gls-group.eu/PT/pt/receber-envios/seguir-envio/" target="_blank">GLS</a>
+            </div>
+
+            <div id="mx" class="tab-content">
+                <a href="https://www.dhl.com/mx-es/home/rastreo.html" target="_blank">DHL México</a>
+            </div>
+        </div>
+
+        <!-- METABASE -->
+        <div class="card" style="min-width:320px;">
+            <h3>📊 Metabase</h3>
+
+            <div class="tab-buttons">
+                <button onclick="openTab(event,'mb1')" class="active">AWB</button>
+            </div>
+
+            <div id="mb1" class="tab-content active">
+                <p><strong>AWB + Invoice</strong></p>
+
+                <ol>
+                    <li><a href="https://shipsmart.metabaseapp.com/question/4046-awb-invoice-larroude" target="_blank">Abrir Metabase</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1BGvwwdeAPhSD94o21QhP_zpaKgRU8yNiRdZKD-qI-CY/edit" target="_blank">Planilha</a></li>
+                </ol>
+
+<pre style="background:#eef4ff; padding:10px; border-radius:10px;">
+{
+  "PdfUrls": ["links aqui"]
+}
+</pre>
+
+            </div>
+        </div>
+
     </div>
 
 </main>
 
-<!-- PAINEL SHIPSMART -->
-<h2 class="section-title">Painel ShipSmart</h2>
-<p class="section-sub">Acesse rapidamente suas ferramentas</p>
+<!-- SCRIPT DAS TABS -->
+<script>
+function openTab(event, tab) {
+    const contents = document.querySelectorAll(".tab-content");
+    const buttons = document.querySelectorAll(".tab-buttons button");
 
-<div class="cards-grid">
-    <div class="card">
-        <h3>🏢 Torre de Controle</h3>
-        <a class="btn-primary" href="#">Acessar</a>
-    </div>
+    contents.forEach(c => c.classList.remove("active"));
+    buttons.forEach(b => b.classList.remove("active"));
 
-    <div class="card">
-        <h3>📦 O Aruvio</h3>
-        <a class="btn-primary" href="#">Acessar</a>
-    </div>
-
-    <div class="card">
-        <h3>📊 Relatórios</h3>
-        <a class="btn-primary" href="#">Visualizar</a>
-    </div>
-</div>
-
-<!-- PLANILHA -->
-<h2 class="section-title">📑 Planilha do Aruvio</h2>
-
-<div style="background:white; padding:20px; border-radius:20px; box-shadow: var(--sombra-leve);">
-    <iframe 
-        src="https://docs.google.com/spreadsheets/d/1VBzvma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545"
-        style="width:100%; height:450px; border:none; border-radius:12px;">
-    </iframe>
-
-    <div style="text-align:center; margin-top:20px;">
-        <a class="btn-primary" target="_blank"
-           href="https://docs.google.com/spreadsheets/d/1VBzvma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545">
-            Abrir Planilha
-        </a>
-    </div>
-</div>
-
-<!-- TRANSPORTADORAS + METABASE -->
-<div class="cards-grid">
-
-    <!-- TRANSPORTADORAS -->
-    <div class="card" style="min-width:320px;">
-        <h3>🚚 Transportadoras</h3>
-
-        <div class="tab-buttons">
-            <button onclick="openTab(event,'br')" class="active">🇧🇷</button>
-            <button onclick="openTab(event,'pt')">🇵🇹</button>
-            <button onclick="openTab(event,'mx')">🇲🇽</button>
-        </div>
-
-        <div id="br" class="tab-content active">
-            <a href="https://rastreamento.correios.com.br" target="_blank">Correios</a>
-            <a href="https://app.loggi.com/envios-nacionais" target="_blank">Loggi</a>
-            <a href="https://www.fedex.com/pt-br/tracking.html" target="_blank">FedEx</a>
-        </div>
-
-        <div id="pt" class="tab-content">
-            <a href="https://tracking.dpd.pt/" target="_blank">DPD</a>
-            <a href="https://gls-group.eu/PT/pt/receber-envios/seguir-envio/" target="_blank">GLS</a>
-        </div>
-
-        <div id="mx" class="tab-content">
-            <a href="https://www.dhl.com/mx-es/home/rastreo.html" target="_blank">DHL México</a>
-        </div>
-    </div>
-
-    <!-- METABASE -->
-    <div class="card" style="min-width:320px;">
-        <h3>📊 Metabase</h3>
-
-        <div class="tab-buttons">
-            <button onclick="openTab(event,'mb1')" class="active">AWB</button>
-        </div>
-
-        <div id="mb1" class="tab-content active">
-            <p><strong>AWB + Invoice</strong></p>
-
-            <ol>
-                <li><a href="https://shipsmart.metabaseapp.com/question/4046-awb-invoice-larroude" target="_blank">Abrir Metabase</a></li>
-                <li><a href="https://docs.google.com/spreadsheets/d/1BGvwwdeAPhSD94o21QhP_zpaKgRU8yNiRdZKD-qI-CY/edit" target="_blank">Planilha</a></li>
-            </ol>
-
-            <pre style="background:#eef4ff; padding:10px; border-radius:10px;">
-{
-  "PdfUrls": ["links aqui"]
+    document.getElementById(tab).classList.add("active");
+    event.currentTarget.classList.add("active");
 }
-            </pre>
-        </div>
-    </div>
+</script>
 
-</div>
+</body>
+</html>
