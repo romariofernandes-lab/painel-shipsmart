@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Torre de Controle | ShipSmart - Links Importantes</title>
+    <!-- Font Awesome 6 (ícones modernos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter + Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Outfit', sans-serif;
+            background: linear-gradient(145deg, #0a0e1a 0%, #0c1022 50%, #0a0e1a 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(0, 100, 200, 0.08) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, rgba(59,130,246,0.02) 0px, rgba(59,130,246,0.02) 2px, transparent 2px, transparent 8px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hub-container {
+            max-width: 950px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* CARD PRINCIPAL */
+        .profile-card {
+            background: rgba(10, 16, 30, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 2rem;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(59, 130, 246, 0.2);
+            padding: 2rem 1.8rem 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        /* Avatar */
+        .avatar-area {
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+        .avatar {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #1e3a5f, #0f2442);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(59,130,246,0.3);
+            border: 2px solid #3b82f6;
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59,130,246,0.2); border-color: #3b82f680; }
+            50% { box-shadow: 0 0 35px rgba(59,130,246,0.5); border-color: #3b82f6; }
+        }
+        .avatar i {
+            font-size: 2.8rem;
+            color: #7dd3fc;
+        }
+
+        .user-name {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #e0f2fe, #7ab3c8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+        }
+        .user-bio {
+            text-align: center;
+            color: #8ba3c7;
+            font-weight: 500;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .badge-system {
+            text-align: center;
+            margin-bottom: 1.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: rgba(59,130,246,0.15);
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #7dd3fc;
+            border: 1px solid rgba(59,130,246,0.3);
+        }
+
+        /* Categorias */
+        .category-section {
+            margin-bottom: 1.5rem;
+        }
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid rgba(59,130,246,0.4);
+        }
+        .category-title i {
+            font-size: 1.2rem;
+            color: #3b82f6;
+        }
+        .category-title h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #cbd5e6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Grid de links */
+        .links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(20, 30, 50, 0.7);
+            padding: 0.75rem 1.2rem;
+            border-radius: 1.2rem;
+            text-decoration: none;
+            color: #e2e8f0;
+            font-weight: 500;
+            font-size: 0.82rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(59,130,246,0.2);
+        }
+
+        .link-left {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            flex: 1;
+        }
+        .link-left i {
+            font-size: 1.2rem;
+            width: 26px;
+            text-align: center;
+        }
+        .link-text {
+            font-size: 0.82rem;
+            font-weight: 500;
+            word-break: break-word;
+            flex: 1;
+        }
+        .link-right i {
+            font-size: 0.85rem;
+            color: #5f7ea0;
+        }
+
+        .link-btn:hover {
+            transform: translateX(5px);
+            background: rgba(37, 99, 235, 0.2);
+            border-color: #3b82f6;
+        }
+        .link-btn:hover .link-right i {
+            color: #60a5fa;
+        }
+
+        /* Cores dos ícones */
+        .icon-main { color: #ef4444; }
+        .icon-api { color: #f59e0b; }
+        .icon-automation { color: #10b981; }
+        .icon-database { color: #06b6d4; }
+        .icon-transport { color: #8b5cf6; }
+        .icon-colab { color: #ec489a; }
+        .icon-docs { color: #3b82f6; }
+        .icon-email { color: #f97316; }
+
+        /* RODAPÉ COM COMUNICAÇÃO SHIPSMART */
+        .footer-communication {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(59,130,246,0.3);
+        }
+        .comms-title {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8ba3c7;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .comms-title i {
+            margin-right: 0.5rem;
+            color: #3b82f6;
+        }
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(20, 30, 50, 0.6);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            color: #cbd5e6;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            border: 1px solid rgba(59,130,246,0.2);
+        }
+        .contact-item i {
+            font-size: 1.1rem;
+        }
+        .contact-item:hover {
+            background: rgba(59,130,246,0.2);
+            transform: translateY(-2px);
+            border-color: #3b82f6;
+            color: white;
+        }
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 0;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(20, 30, 50, 0.6);
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            color: #cbd5e6;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+        .social-link i {
+            font-size: 1rem;
+        }
+        .social-link:hover {
+            background: rgba(59,130,246,0.25);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .profile-card { padding: 1.2rem 1rem; }
+            .link-text { font-size: 0.7rem; }
+            .link-left i { font-size: 1rem; width: 22px; }
+            .link-btn { padding: 0.6rem 0.9rem; }
+            .contact-item { font-size: 0.7rem; padding: 0.4rem 0.8rem; }
+            .social-link { font-size: 0.65rem; padding: 0.3rem 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="hub-container">
+    <div class="profile-card">
+        
+        <div class="avatar-area">
+            <div class="avatar">
+                <i class="fas fa-tower-broadcast"></i>
+            </div>
+        </div>
+        <div class="user-name">
+            SHIPSMART - TORRE DE CONTROLE
+        </div>
+        <div class="user-bio">
+            <i class="fas fa-link"></i> LINKS IMPORTANTES • OPERAÇÕES LOGÍSTICAS
+        </div>
+        <div class="badge-system">
+            <span class="badge"><i class="fas fa-chart-line"></i> MONITORAMENTO</span>
+            <span class="badge"><i class="fas fa-robot"></i> AUTOMAÇÕES</span>
+            <span class="badge"><i class="fas fa-truck-fast"></i> TRANSPORTADORAS</span>
+            <span class="badge"><i class="fas fa-globe"></i> BR • PT • MX</span>
+        </div>
+
+        <!-- ==================== ALERTAS TORRE ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>🚨 ALERTAS E MONITORAMENTO</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://docs.google.com/spreadsheets/d/1VBzvma7MiKHqPRst-i9VSpBAuTC3HNxAF-9pKU1-wpI/edit?gid=1406350545#gid=1406350545" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-bell icon-main"></i><span class="link-text">ALERTAS TORRE DE CONTROLE (PRINCIPAL)</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1gVfPPHHWXjjNtFYnKaRZiggZyQ6-S6sLS-50ue596Yg/edit?gid=1451258755#gid=1451258755" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-map-marker-alt icon-main"></i><span class="link-text">ALERTAS TORRE - ROMA</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://shipsmart.metabaseapp.com/question/7660-alerta-valores-invoices-us" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-dollar-sign icon-main"></i><span class="link-text">ALERTAS VALORES INVOICES US - METABASE</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== METABASE / DASHBOARDS ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-chart-pie"></i>
+                <h3>📊 METABASE - DASHBOARDS</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://shipsmart.metabaseapp.com/question/8632-torre-de-controle-status-remessas" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-tachometer-alt icon-database"></i><span class="link-text">TORRE DE CONTROLE - STATUS REMESSA (GERAL)</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://shipsmart.metabaseapp.com/question/4441-cancelar-em-massa" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-ban icon-database"></i><span class="link-text">CANCELAR REMESSAS EM MASSA</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://shipsmart.metabaseapp.com/question#eyJkYXRhc2V0X3F1ZXJ5Ijp7ImRhdGFiYXNlIjo0LCJsaWIvdHlwZSI6Im1icWwvcXVlcnkiLCJzdGFnZXMiOlt7ImxpYi90eXBlIjoibWJxbC5zdGFnZS9tYnFsIiwib3JkZXItYnkiOltbImRlc2MiLHsibGliL3V1aWQiOiJmMjJlOTZjNi05NTkxLTRjOGUtODFiNi05NTk1YjQ5ZGZlYmMifSxbImZpZWxkIix7ImJhc2UtdHlwZSI6InR5cGUvRGF0ZVRpbWVXaXRoTG9jYWxUWiIsImVmZmVjdGl2ZS10eXBlIjoidHlwZS9EYXRlVGltZVdpdGhMb2NhbFRaIiwibGliL3V1aWQiOiI0NTljYzIzOC1jMWEzLTQ3NGMtYTIxMS03ZTI0Mjg2ODVhZDcifSw3NTY3XV1dLCJzb3VyY2UtdGFibGUiOjEzNTV9XX0sImRpc3BsYXkiOiJ0YWJsZSIsInR5cGUiOiJxdWVzdGlvbiIsInZpc3VhbGl6YXRpb25fc2V0dGluZ3MiOnt9fQ==" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-history icon-database"></i><span class="link-text">CONFERIR ALERTAS E HISTÓRICO DE ATUALIZAÇÕES</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://shipsmart.metabaseapp.com/question/4046-awb-invoice-larroude" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-file-invoice icon-database"></i><span class="link-text">GERAR AWB - UPS/LARROUDE - METABASE (PASSO 1)</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== AUTOMAÇÕES N8N ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-robot"></i>
+                <h3>⚙️ AUTOMAÇÕES N8N</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://primary-production-cd051.up.railway.app/workflow/DXOsiT0k9Ln5ibNG" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-cogs icon-automation"></i><span class="link-text">N8N - GERAR AWB, INVOICE E FOOTWARE (LARROUDÉ)</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://primary-production-cd051.up.railway.app/workflow/ssowr9OEodkcP9eb" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-sync-alt icon-automation"></i><span class="link-text">N8N - ATUALIZAR STATUS + CANCELAR REMESSAS EM MASSA</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== DEV / POSTMAN / SWAGGER ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-code"></i>
+                <h3>🛠️ DEV & APIS</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://docs.google.com/spreadsheets/d/1BGvwwdeAPhSD94o21QhP_zpaKgRU8yNiRdZKD-qI-CY/edit?gid=100821504#gid=100821504" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-terminal icon-api"></i><span class="link-text">LINKS POSTMAN/SWAGGER (PASSO 2)</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://service.shipsmart.com.br/swagger/index.html" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-file-code icon-api"></i><span class="link-text">SWAGGER - API SHIPSMART (PASSO 3)</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== DOCS / SPREADSHEETS ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-file-alt"></i>
+                <h3>📄 DOCUMENTAÇÃO E PLANILHAS</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://docs.google.com/spreadsheets/d/1B_vd2yEcKRsMDs0jJwKezWbvsiCAi4MxBU2N9y0qSok/edit?gid=0#gid=0" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-key icon-docs"></i><span class="link-text">LOGINS DAS TRANSPORTADORAS</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1AGxuNbIGq3OycyQOB3WOCA1tO9PjSY2B14G7n9aFuaM/edit?gid=0#gid=0" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-tasks icon-docs"></i><span class="link-text">PENDÊNCIAS TIME DE TECH - STATUS REMESSA</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1-V76QBtZNGBEzwluuLtyBoLzqsdSYcTGYn0lwxpHxwU/edit?pli=1&gid=3661656#gid=3661656" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-envelope-open-text icon-docs"></i><span class="link-text">DISPARO E-MAIL MASSA - PAPERWORK FEDEX</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1775qKVsMs76X1yyOnFKwNV5D82_nIIxCJLFndiICayg/edit?gid=2115499642#gid=2115499642" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-search icon-docs"></i><span class="link-text">BUSCA WORKLIST</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1c7JBgv0AOzw0jwoyC2bo7Et5g0sxWPD3RVlfBAjbZ9s/edit?gid=1342864381#gid=1342864381" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-inbox icon-email"></i><span class="link-text">E-MAILS TORRE DE CONTROLE</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1geW2g2e6F9BbU_cYJ2vopbpq46sh7-SbG-WzxoqrvSI/edit?gid=0#gid=0" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-truck icon-docs"></i><span class="link-text">BUSCA AWB NO PAPERWORK - FEDEX</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://docs.google.com/document/d/1PkjwjMxH2iKTa0Abvz69YRpFnHkP1DtS/edit" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-flag icon-docs"></i><span class="link-text">OPERAÇÃO MÉXICO - ENVIOCLICK</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://docs.google.com/document/d/1BN_L_9ei06A-0PisGDsfSnJfzHFYquysmko8blpxxOc/edit?tab=t.0#heading=h.gbw2uqrvy8bi" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-globe-europe icon-docs"></i><span class="link-text">OPERAÇÃO PORTUGAL</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== COLABS ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-chalkboard-user"></i>
+                <h3>🐍 COLAB - FERRAMENTAS</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://colab.research.google.com/drive/1wqye1HvZDEXmPXYiHZ5zTTvcIhSesyei#scrollTo=XQq4IETv55cT" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-cut icon-colab"></i><span class="link-text">COLAB - TIRAR VALUE / GIRAR / CORTAR ETIQUETA FEDEX</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+                <a href="https://colab.research.google.com/drive/13s7Cd333-vQLd73PPMIWC8ysMm-5u5tj#scrollTo=dvWfJp4i-lcf" class="link-btn" target="_blank">
+                    <div class="link-left"><i class="fas fa-file-pdf icon-colab"></i><span class="link-text">COLAB - JUNTAR PDFs FEDEX</span></div>
+                    <div class="link-right"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== TRANSPORTADORAS BRASIL ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-truck-fast"></i>
+                <h3>🇧🇷 TRANSPORTADORAS - BRASIL</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://www.fedex.com/pt-br/home.html" class="link-btn" target="_blank"><div class="link-left"><i class="fab fa-fedex icon-transport"></i><span class="link-text">FEDEX BRASIL</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+                <a href="https://www.ups.com/br/pt/Home.page" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-box icon-transport"></i><span class="link-text">UPS BRASIL</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+                <a href="https://www.loggi.com/" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-motorcycle icon-transport"></i><span class="link-text">LOGGI</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+                <a href="https://totalexpress.com.br/" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-truck icon-transport"></i><span class="link-text">TOTAL EXPRESS</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+                <a href="https://www.dhl.com/br-pt/home.html" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-globe icon-transport"></i><span class="link-text">DHL BRASIL</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+            </div>
+        </div>
+
+        <!-- ==================== TRANSPORTADORAS PORTUGAL ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-ship"></i>
+                <h3>🇵🇹 TRANSPORTADORAS - PORTUGAL</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://www.dpd.com/pt/" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-boxes icon-transport"></i><span class="link-text">DPD PORTUGAL</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+                <a href="https://www.gls-portugal.pt/" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-truck-ramp-box icon-transport"></i><span class="link-text">GLS PORTUGAL</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+                <a href="https://www.ctt.pt/" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-envelope icon-transport"></i><span class="link-text">CTT PORTUGAL</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+            </div>
+        </div>
+
+        <!-- ==================== TRANSPORTADORAS MÉXICO ==================== -->
+        <div class="category-section">
+            <div class="category-title">
+                <i class="fas fa-chalkboard-user"></i>
+                <h3>🇲🇽 TRANSPORTADORAS - MÉXICO</h3>
+            </div>
+            <div class="links-grid">
+                <a href="https://www.fedex.com/es-mx/home.html" class="link-btn" target="_blank"><div class="link-left"><i class="fab fa-fedex icon-transport"></i><span class="link-text">FEDEX MÉXICO</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+                <a href="https://www.ups.com/mx/es/Home.page" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-box icon-transport"></i><span class="link-text">UPS MÉXICO</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+                <a href="https://www.dhl.com/mx-es/home.html" class="link-btn" target="_blank"><div class="link-left"><i class="fas fa-globe icon-transport"></i><span class="link-text">DHL MÉXICO</span></div><div class="link-right"><i class="fas fa-external-link-alt"></i></div></a>
+            </div>
+        </div>
+
+        <!-- ==================== RODAPÉ COM COMUNICAÇÃO SHIPSMART ==================== -->
+        <div class="footer-communication">
+            <div class="comms-title">
+                <i class="fas fa-headset"></i> COMUNICAÇÃO SHIPSMART • FALE CONOSCO
+            </div>
+            
+            <!-- Contatos diretos -->
+            <div class="contact-grid">
+                <a href="mailto:help@shipsmart.global" class="contact-item">
+                    <i class="fas fa-envelope" style="color: #3b82f6;"></i>
+                    <span>help@shipsmart.global</span>
+                </a>
+                <a href="https://wa.me/5511947075286" class="contact-item" target="_blank">
+                    <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                    <span>+55 11 94707-5286</span>
+                </a>
+            </div>
+            
+            <!-- Redes Sociais -->
+            <div class="social-grid">
+                <a href="https://www.linkedin.com/company/shipsmart-global" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin" style="color: #0A66C2;"></i>
+                    <span>ShipSmart Global</span>
+                </a>
+                <a href="https://www.instagram.com/shipsmartbr" class="social-link" target="_blank">
+                    <i class="fab fa-instagram" style="color: #E4405F;"></i>
+                    <span>@shipsmartbr</span>
+                </a>
+                <a href="https://www.facebook.com/ShipSmartGlobal" class="social-link" target="_blank">
+                    <i class="fab fa-facebook" style="color: #1877F2;"></i>
+                    <span>ShipSmart Global</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
