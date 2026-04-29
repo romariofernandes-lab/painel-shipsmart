@@ -1,0 +1,9 @@
+{
+  "name": "shipsmart-torre",
+  "scripts": {
+    "build": "pagecrypt index.html dist/index.html"
+  },
+  "devDependencies": {
+    "pagecrypt": "^1.3.0"
+  }
+}
